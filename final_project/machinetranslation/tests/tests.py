@@ -1,10 +1,15 @@
-from translator import englishToFrench
-from translator import frenchToEnglish
+import unittest
+import translator as tr
+from translator import french_to_english, english_to_french
 
-english_word = input("Enter an English word: ")
-french_translation = englishToFrench(english_word)
-print(f"The French translation of '{english_word}' is '{french_translation}'.")
+class Testt(unittest.TestCase):
+    def test1(self):
+        self.assertEqual(french_to_english('bonjour'), 'hello')
+        self.assertNotEqual(french_to_english('Vie'), 'Hello')
 
-french_word = input("Enter an french word: ")
-english_translation = frenchToEnglish(french_word)
-print(f"The French translation of '{french_word}' is '{english_translation}'.")
+
+class Test(unittest.TestCase):
+    def test2(self):
+        self.assertEqual(english_to_french('hello'), 'bonjour')
+        self.assertNotEqual(english_to_french('hello'), 'vie')
+unittest.main()
